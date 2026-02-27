@@ -172,3 +172,53 @@ body {
   object-fit: contain;
   justify-self: center;
 }
+
+/* ===== Overlay товара ===== */
+.item-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.item-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Модальное окно */
+.item-modal {
+  position: relative;
+  width: 80vw;
+  max-width: 420px;
+  max-height: 80vh;
+}
+
+.item-modal img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+}
+
+/* Крестик */
+.close-modal {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  font-family: 'Comfortaa', sans-serif;
+}
+
