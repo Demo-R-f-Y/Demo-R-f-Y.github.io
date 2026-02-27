@@ -244,40 +244,40 @@ body {
   opacity: 1;
 }
 
-/* ===== SLIDE ANIMATION FOR MODAL ===== */
+/* ===== АНИМАЦИЯ СВАЙПА ITEM ===== */
 
-.item-modal img {
-  transition:
-    transform 0.35s ease,
-    opacity 0.35s ease;
+.item-modal {
+  overflow: hidden;
 }
 
-/* исходное состояние */
-.item-modal img.center {
+#modalImage {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* уезд */
+.exit-left {
+  transform: translateX(-30%);
+  opacity: 0;
+}
+
+.exit-right {
+  transform: translateX(30%);
+  opacity: 0;
+}
+
+/* старт новой */
+.enter-right {
+  transform: translateX(30%);
+  opacity: 0;
+}
+
+.enter-left {
+  transform: translateX(-30%);
+  opacity: 0;
+}
+
+/* центр */
+.center {
   transform: translateX(0);
   opacity: 1;
 }
-
-/* уезжает влево */
-.item-modal img.exit-left {
-  transform: translateX(-30%);
-  opacity: 0;
-}
-
-/* уезжает вправо */
-.item-modal img.exit-right {
-  transform: translateX(30%);
-  opacity: 0;
-}
-
-/* заезжает справа */
-.item-modal img.enter-right {
-  transform: translateX(30%);
-  opacity: 0;
-}
-
-/* заезжает слева */
-.item-modal img.enter-left {
-  transform: translateX(-30%);
-  opacity: 0;
-    }
