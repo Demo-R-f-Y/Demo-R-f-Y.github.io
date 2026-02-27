@@ -46,9 +46,9 @@ function handleSwipe() {
   if (Math.abs(diff) < swipeThreshold) return;
 
   if (diff < 0) {
-    showNext();
+    changeItem("next");
   } else {
-    showPrev();
+    changeItem("prev");
   }
 }
 
