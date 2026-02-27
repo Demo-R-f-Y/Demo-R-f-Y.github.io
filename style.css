@@ -222,3 +222,14 @@ body {
   font-family: 'Comfortaa', sans-serif;
 }
 
+/* Анимация zoom */
+.item-modal {
+  transform: scale(0.85);
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.item-overlay.active .item-modal {
+  transform: scale(1);
+  opacity: 1;
+}
