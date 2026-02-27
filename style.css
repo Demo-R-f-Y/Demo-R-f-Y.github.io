@@ -243,3 +243,41 @@ body {
   transform: scale(1);
   opacity: 1;
 }
+
+/* ===== SLIDE ANIMATION FOR MODAL ===== */
+
+.item-modal img {
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
+}
+
+/* исходное состояние */
+.item-modal img.center {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* уезжает влево */
+.item-modal img.exit-left {
+  transform: translateX(-30%);
+  opacity: 0;
+}
+
+/* уезжает вправо */
+.item-modal img.exit-right {
+  transform: translateX(30%);
+  opacity: 0;
+}
+
+/* заезжает справа */
+.item-modal img.enter-right {
+  transform: translateX(30%);
+  opacity: 0;
+}
+
+/* заезжает слева */
+.item-modal img.enter-left {
+  transform: translateX(-30%);
+  opacity: 0;
+    }
