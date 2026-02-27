@@ -72,7 +72,7 @@ function changeItem(direction) {
     // старт новой
     modalImage.className = "";
     modalImage.classList.add(
-      direction === "next" ? "enter-left" : "enter-right"
+      direction === "next" ? "enter-right" : "enter-left"
     );
 
     // reflow
