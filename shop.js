@@ -52,22 +52,33 @@ function handleSwipe() {
   }
 }
 
-function showNext() {
-  currentIndex = (currentIndex + 1) % items.length;
-  changeImage();
-}
-
-function showPrev() {
-  currentIndex =
-    (currentIndex - 1 + items.length) % items.length;
-  changeImage();
-}
-
-function changeImage() {
-  modalImage.classList.add("fade");
+function changeItem(direction) {
+  // уезд текущей
+  modalImage.className = "";
+  modalImage.classList.add(
+    direction === "next" ? "exit-left" : "exit-right"
+  );
 
   setTimeout(() => {
+    // меняем индекс
+    currentIndex =
+      direction === "next"
+        ? (currentIndex + 1) % items.length
+        : (currentIndex - 1 + items.length) % items.length;
+
+    // меняем src
     modalImage.src = items[currentIndex].src;
-    modalImage.classList.remove("fade");
-  }, 150);
+
+    // старт новой
+    modalImage.className = "";
+    modalImage.classList.add(
+      direction === "next" ? "enter-right" : "enter-left"
+    );
+
+    // reflow
+    modalImage.offsetHeight;
+
+    // заезд в центр
+    modalImage.className = "center";
+  }, 300);
 }
