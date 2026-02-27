@@ -2,13 +2,19 @@ const overlay = document.getElementById("itemOverlay");
 const modalImage = document.getElementById("modalImage");
 const closeBtn = document.getElementById("closeModal");
 
-document.querySelectorAll(".gallery img").forEach(img => {
+const items = Array.from(document.querySelectorAll(".gallery img"));
+let currentIndex = 0;
+
+// Открытие item
+items.forEach((img, index) => {
   img.addEventListener("click", () => {
+    currentIndex = index;
     modalImage.src = img.src;
     overlay.classList.add("active");
   });
 });
 
+// Закрытие
 closeBtn.addEventListener("click", () => {
   overlay.classList.remove("active");
 });
@@ -18,3 +24,50 @@ overlay.addEventListener("click", (e) => {
     overlay.classList.remove("active");
   }
 });
+
+/* ===== СВАЙП ===== */
+
+let startX = 0;
+let endX = 0;
+const swipeThreshold = 50; // минимальная дистанция свайпа
+
+modalImage.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+});
+
+modalImage.addEventListener("touchend", (e) => {
+  endX = e.changedTouches[0].clientX;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  const diff = endX - startX;
+
+  if (Math.abs(diff) < swipeThreshold) return;
+
+  if (diff < 0) {
+    showNext();
+  } else {
+    showPrev();
+  }
+}
+
+function showNext() {
+  currentIndex = (currentIndex + 1) % items.length;
+  changeImage();
+}
+
+function showPrev() {
+  currentIndex =
+    (currentIndex - 1 + items.length) % items.length;
+  changeImage();
+}
+
+function changeImage() {
+  modalImage.classList.add("fade");
+
+  setTimeout(() => {
+    modalImage.src = items[currentIndex].src;
+    modalImage.classList.remove("fade");
+  }, 150);
+}
