@@ -173,6 +173,16 @@ body {
   justify-self: center;
 }
 
+/* ===== ITEM MODAL ===== */
+
+.item-modal img {
+  transition: opacity 0.25s ease;
+}
+
+.item-modal img.fade {
+  opacity: 0;
+}
+
 /* ===== Overlay товара ===== */
 .item-overlay {
   position: fixed;
