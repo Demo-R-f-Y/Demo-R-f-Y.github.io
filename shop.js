@@ -1,5 +1,6 @@
 const overlay = document.getElementById("itemOverlay");
-const modalImage = document.getElementById("modalImage");
+const currentImg = document.getElementById("modalImageCurrent");
+const nextImg = document.getElementById("modalImageNext");
 const closeBtn = document.getElementById("closeModal");
 
 const items = Array.from(document.querySelectorAll(".gallery img"));
