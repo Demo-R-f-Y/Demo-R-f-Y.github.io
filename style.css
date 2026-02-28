@@ -257,3 +257,9 @@ body {
   transform: scale(1);
   opacity: 1;
 }
+
+body.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+  touch-action: none;
+}
