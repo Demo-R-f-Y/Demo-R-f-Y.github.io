@@ -267,12 +267,12 @@ body {
 
 /* старт новой */
 .enter-right {
-  transform: translateX(30%);
+  transform: translateX(-30%);
   opacity: 0;
 }
 
 .enter-left {
-  transform: translateX(-30%);
+  transform: translateX(30%);
   opacity: 0;
 }
 
