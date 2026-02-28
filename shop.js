@@ -10,7 +10,12 @@ let currentIndex = 0;
 items.forEach((img, index) => {
   img.addEventListener("click", () => {
     currentIndex = index;
-    modalImage.src = img.src;
+
+    currentImg.src = img.src;
+    currentImg.className = "modal-img active";
+
+    nextImg.className = "modal-img";
+
     overlay.classList.add("active");
   });
 });
@@ -32,11 +37,11 @@ let startX = 0;
 let endX = 0;
 const swipeThreshold = 50; // минимальная дистанция свайпа
 
-modalImage.addEventListener("touchstart", (e) => {
+currentImg.addEventListener("touchstart", (e) => {
   startX = e.touches[0].clientX;
 });
 
-modalImage.addEventListener("touchend", (e) => {
+currentImg.addEventListener("touchend", (e) => {
   endX = e.changedTouches[0].clientX;
   handleSwipe();
 });
@@ -54,32 +59,28 @@ function handleSwipe() {
 }
 
 function changeItem(direction) {
-  // уезд текущей
-  modalImage.className = "";
-  modalImage.classList.add(
-    direction === "next" ? "exit-left" : "exit-right"
-  );
+  const exitClass = direction === "next" ? "exit-left" : "exit-right";
+  const enterClass = direction === "next" ? "enter-right" : "enter-left";
+
+  const nextIndex =
+    direction === "next"
+      ? (currentIndex + 1) % items.length
+      : (currentIndex - 1 + items.length) % items.length;
+
+  nextImg.src = items[nextIndex].src;
+  nextImg.className = `modal-img ${enterClass}`;
+
+  // reflow
+  nextImg.offsetHeight;
+
+  currentImg.classList.add(exitClass);
+  nextImg.classList.add("active");
 
   setTimeout(() => {
-    // меняем индекс
-    currentIndex =
-      direction === "next"
-        ? (currentIndex + 1) % items.length
-        : (currentIndex - 1 + items.length) % items.length;
+    currentIndex = nextIndex;
 
-    // меняем src
-    modalImage.src = items[currentIndex].src;
-
-    // старт новой
-    modalImage.className = "";
-    modalImage.classList.add(
-      direction === "next" ? "enter-left" : "enter-right"
-    );
-
-    // reflow
-    modalImage.offsetHeight;
-
-    // заезд в центр
-    modalImage.className = "center";
+    currentImg.src = nextImg.src;
+    currentImg.className = "modal-img active";
+    nextImg.className = "modal-img";
   }, 300);
 }
