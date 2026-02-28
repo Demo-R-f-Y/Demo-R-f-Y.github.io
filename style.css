@@ -258,12 +258,6 @@ body {
   opacity: 1;
 }
 
-body.no-scroll {
-  position: fixed;
-  width: 100%;
-  overflow: hidden;
-}
-
 html.no-scroll,
 body.no-scroll {
   overflow: hidden;
