@@ -295,11 +295,3 @@ body {
   opacity: 1;
   transform: translateX(0);
 }
-
-/* уезд */
-.exit-left   { transform: translateX(-30%); opacity: 0; }
-.exit-right  { transform: translateX(30%);  opacity: 0; }
-
-/* заезд */
-.enter-left  { transform: translateX(-30%); opacity: 0; }
-.enter-right { transform: translateX(30%);  opacity: 0; }
