@@ -173,16 +173,6 @@ body {
   justify-self: center;
 }
 
-/* ===== ITEM MODAL ===== */
-
-.item-modal img {
-  transition: opacity 0.25s ease;
-}
-
-.item-modal img.fade {
-  opacity: 0;
-}
-
 /* ===== Overlay товара ===== */
 .item-overlay {
   position: fixed;
@@ -231,46 +221,6 @@ body {
   cursor: pointer;
   font-family: 'Comfortaa', sans-serif;
 }
-
-/* Анимация zoom */
-.item-modal {
-  transform: scale(0.85);
-  opacity: 0;
-  transition: transform 0.35s ease, opacity 0.35s ease;
-}
-
-.item-overlay.active .item-modal {
-  transform: scale(1);
-  opacity: 1;
-}
-
-/* ===== АНИМАЦИЯ СВАЙПА ITEM ===== */
-
-.item-modal {
-  overflow: hidden;
-}
-
-#modalImage {
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-/* уезд */
-.exit-left {
-  transform: translateX(-30%);
-  opacity: 0;
-}
-
-.exit-right {
-  transform: translateX(30%);
-  opacity: 0;
-}
-
-/* старт новой */
-.enter-right {
-  transform: translateX(-30%);
-  opacity: 0;
-}
-
 .enter-left {
   transform: translateX(30%);
   opacity: 0;
