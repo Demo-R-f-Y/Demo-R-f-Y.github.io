@@ -1,3 +1,4 @@
+const modal = document.querySelector(".item-modal");
 const overlay = document.getElementById("itemOverlay");
 const currentImg = document.getElementById("modalImageCurrent");
 const nextImg = document.getElementById("modalImageNext");
@@ -37,11 +38,11 @@ let startX = 0;
 let endX = 0;
 const swipeThreshold = 50; // минимальная дистанция свайпа
 
-currentImg.addEventListener("touchstart", (e) => {
+modal.addEventListener("touchstart", (e) => {
   startX = e.touches[0].clientX;
 });
 
-currentImg.addEventListener("touchend", (e) => {
+modal.addEventListener("touchend", (e) => {
   endX = e.changedTouches[0].clientX;
   handleSwipe();
 });
