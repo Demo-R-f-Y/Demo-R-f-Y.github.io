@@ -1,43 +1,34 @@
-let scrollPosition = 0;
-
 const overlay = document.getElementById("itemOverlay");
 const modalImage = document.getElementById("modalImage");
 const closeBtn = document.getElementById("closeModal");
 
-// Открытие item
+// ОТКРЫТИЕ ITEM
 document.querySelectorAll(".gallery img").forEach(img => {
   img.addEventListener("click", () => {
-    // запоминаем позицию скролла
-    scrollPosition = window.scrollY;
-
-    // подставляем картинку
     modalImage.src = img.src;
-
-    // показываем overlay
     overlay.classList.add("active");
 
-    // фиксируем страницу
+    // Блокируем скролл страницы
+    document.documentElement.classList.add("no-scroll");
     document.body.classList.add("no-scroll");
-    document.body.style.top = `-${scrollPosition}px`;
   });
 });
 
-// Закрытие через крестик
+// ЗАКРЫТИЕ ЧЕРЕЗ КРЕСТИК
 closeBtn.addEventListener("click", closeOverlay);
 
-// Закрытие по клику на фон
+// ЗАКРЫТИЕ ПО КЛИКУ НА ФОН
 overlay.addEventListener("click", (e) => {
   if (e.target === overlay) {
     closeOverlay();
   }
 });
 
-// Функция закрытия
+// ФУНКЦИЯ ЗАКРЫТИЯ
 function closeOverlay() {
   overlay.classList.remove("active");
 
+  // Возвращаем скролл
+  document.documentElement.classList.remove("no-scroll");
   document.body.classList.remove("no-scroll");
-  document.body.style.top = "";
-
-  window.scrollTo(0, scrollPosition);
 }
