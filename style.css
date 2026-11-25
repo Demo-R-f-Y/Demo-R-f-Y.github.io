@@ -5,10 +5,23 @@
   box-sizing: border-box;
 }
 
+/* Запасной цвет фона под градиентом */
+html {
+  background-color: #C9A3D5;
+}
+
+/* Фоновый градиент: закреплён на весь экран, не зависит от body */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, #C9A3D5, #D12899);
+  z-index: -1;
+}
+
 /* Тело страницы */
 body {
   min-height: 100vh;
-  background: linear-gradient(180deg, #C9A3D5, #D12899);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   display: flex;
   justify-content: center;
@@ -18,8 +31,8 @@ body {
 /* Контейнер */
 .container {
   width: 100%;
-  max-width: 420px;
-  height: 100vh;
+  max-width: min(420px, 100vh);
+  min-height: 100vh;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -133,6 +146,8 @@ body {
 
 /* Контейнер второй страницы */
 .shop-container {
+  width: 100%;
+  max-width: 100vh;
   min-height: 100vh;
   padding: 20px;
   display: flex;
@@ -263,4 +278,4 @@ body.no-scroll {
   position: fixed;
   width: 100%;
   overflow: hidden;
-                   }
+}
