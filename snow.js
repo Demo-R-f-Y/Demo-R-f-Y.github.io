@@ -9,8 +9,8 @@ const SNOW_ENABLED = true;
   if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
   // ===== НАСТРОЙКИ =====
-  const DENSITY = 1 / 16000;   // больше число знаменателя = меньше снежинок
-  const MAX_FLAKES = 120;      // потолок количества снежинок
+  const DENSITY = 1 / 9000;    // больше число знаменателя = меньше снежинок
+  const MAX_FLAKES = 200;      // потолок количества снежинок
   const MIN_SIZE = 1.2;        // минимальный радиус снежинки, px
   const MAX_SIZE = 3.4;        // максимальный радиус снежинки, px
   const FALL_SPEED = 28;       // скорость падения, px в секунду (средняя)
